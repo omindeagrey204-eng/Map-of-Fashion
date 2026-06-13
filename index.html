@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map of Fashion Store Kenya — Ex UK Mtumba Shoes & Clothes, Nairobi</title>
+  <meta name="description" content="Kenya's finest Ex UK mtumba fashion store. Premium second-hand shoes and clothes sourced straight from the UK — fresh arrivals daily, unbeatable prices. Open 24 hours on Lumumba Drive, Nairobi." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #faf8f4;
+      --cream-2:  #f5f0e8;
+      --border:   #e5ddd0;
+      --navy:     #1a2e55;
+      --navy-2:   #2d4a80;
+      --navy-3:   #0f1923;
+      --gold:     #c9912a;
+      --gold-2:   #f0d890;
+      --muted:    #6b7280;
+      --green-wa: #25D366;
+      --green-wa2:#1dbd5e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy-3);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ── Utility ──────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .badge {
+      display: inline-block;
+      background: var(--cream-2);
+      color: var(--gold);
+      border: 1px solid var(--gold-2);
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.75rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-navy  { background: var(--navy); color: #fff; }
+    .btn-navy:hover { background: var(--navy-2); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: #fff; }
+
+    .btn-whatsapp { background: var(--green-wa); color: #fff; }
+    .btn-whatsapp:hover { background: var(--green-wa2); }
+
+    /* ── Animation helpers ────────────────────────── */
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    .fade-left  { opacity: 0; transform: translateX(-20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-right { opacity: 0; transform: translateX( 20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-left.visible, .fade-right.visible { opacity: 1; transform: none; }
+
+    .scale-in { opacity: 0; transform: scale(0.93); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .scale-in.visible { opacity: 1; transform: scale(1); }
+
+    /* ── NAV ──────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250,248,244,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none; cursor: pointer; background: none; border: none; padding: 0;
+    }
+    .nav-logo-icon {
+      width: 42px; height: 42px; background: var(--navy); color: #fff;
+      border-radius: 10px; display: grid; place-items: center;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900;
+      letter-spacing: -1px; flex-shrink: 0;
+    }
+    .nav-logo-text strong { display: block; font-size: 1rem; font-weight: 600; color: var(--navy-3); }
+    .nav-logo-text span   { font-size: 0.78rem; color: var(--muted); }
+    .nav-links { display: flex; gap: 1.75rem; }
+    .nav-links button {
+      background: none; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links button:hover { color: var(--navy); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 6px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy-3); }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: rgba(250,248,244,0.98);
+      border-bottom: 1px solid var(--border); padding: 1.25rem 1.5rem; gap: 1rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu button {
+      background: none; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+      color: var(--muted); text-align: left; transition: color 0.2s;
+    }
+    .mobile-menu button:hover { color: var(--navy); }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    #home {
+      min-height: 92vh; display: flex; align-items: center;
+      padding: 5rem 1.5rem; position: relative; overflow: hidden; background: var(--cream);
+    }
+    #home::before {
+      content: ''; position: absolute; top: -120px; right: -80px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, #f0d890 0%, transparent 70%);
+      opacity: 0.35; pointer-events: none;
+    }
+    #home::after {
+      content: ''; position: absolute; bottom: -80px; left: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, #d4e3fa 0%, transparent 70%);
+      opacity: 0.3; pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: center; width: 100%; position: relative; z-index: 1;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--cream-2); border: 1px solid var(--border); border-radius: 999px;
+      padding: 0.35rem 1rem; font-size: 0.82rem; font-weight: 600;
+      color: var(--gold); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
+    }
+    .hero-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #3cb97b; flex-shrink: 0; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 900;
+      line-height: 1.05; letter-spacing: -1px; color: var(--navy-3); margin-bottom: 1.25rem;
+    }
+    .hero-title em { font-style: normal; color: var(--navy); }
+    .hero-desc { font-size: 1.07rem; color: var(--muted); max-width: 480px; margin-bottom: 2rem; line-height: 1.7; }
+    .hero-stats { display: flex; gap: 2rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+    .hero-stat-val { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--navy); line-height: 1; }
+    .hero-stat-lbl { font-size: 0.78rem; color: var(--muted); font-weight: 500; margin-top: 2px; }
+    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-card {
+      background: #fff; border-radius: 28px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(15,25,35,0.10); border: 1px solid var(--border);
+    }
+    .hero-card-img {
+      height: 320px;
+      background-image: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80');
+      background-size: cover; background-position: center; position: relative;
+    }
+    .hero-card-img-tag {
+      position: absolute; top: 1rem; left: 1rem;
+      background: rgba(26,46,85,0.92); color: #fff;
+      padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+    }
+    .hero-card-body { padding: 1.5rem; }
+    .hero-card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hero-card-body p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
+    .hero-card-details { display: flex; flex-direction: column; gap: 0.5rem; }
+    .hero-card-detail { display: flex; align-items: center; gap: 0.65rem; font-size: 0.88rem; color: var(--navy-3); }
+    .detail-icon { width: 30px; height: 30px; background: var(--cream-2); border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; }
+    .detail-icon svg { width: 16px; height: 16px; }
+
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* ── ABOUT ────────────────────────────────────── */
+    #about { padding: 5rem 1.5rem; background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+    .about-desc { font-size: 1rem; color: var(--muted); max-width: 560px; margin-bottom: 1.25rem; line-height: 1.7; }
+    .feature-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+    .feature-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      background: var(--cream-2); border: 1px solid var(--border); border-radius: 14px; padding: 1rem;
+    }
+    .feature-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .feature-icon svg { width: 22px; height: 22px; }
+    .feature-title { font-size: 0.88rem; color: var(--navy-3); font-weight: 500; line-height: 1.3; }
+    .feature-sub   { font-size: 0.8rem; color: var(--muted); }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 18px;
+      padding: 1.5rem; text-align: center; box-shadow: 0 8px 32px rgba(15,25,35,0.10);
+    }
+    .stat-val { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .stat-lbl { font-size: 0.82rem; color: var(--muted); font-weight: 500; margin-top: 6px; }
+    .stat-note { margin-top: 1rem; font-size: 0.83rem; color: var(--muted); text-align: center; }
+
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+
+    /* ── PRODUCTS ─────────────────────────────────── */
+    #products {
+      padding: 5rem 1.5rem; background: var(--cream-2);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .products-header { margin-bottom: 3rem; }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .product-card {
+      background: #fff; border-radius: 22px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(15,25,35,0.10); border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(15,25,35,0.14); }
+    .product-img { height: 220px; background-size: cover; background-position: center; position: relative; overflow: hidden; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .product-tag {
+      position: absolute; bottom: 0.75rem; left: 0.75rem;
+      background: rgba(26,46,85,0.90); color: #fff;
+      padding: 0.2rem 0.75rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+    }
+    .product-body { padding: 1.25rem; }
+    .product-body h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .product-body p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
+    .products-cta { text-align: center; margin-top: 2.25rem; font-size: 0.93rem; color: var(--muted); }
+    .products-cta a { color: var(--navy); font-weight: 600; }
+    .products-cta a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .products-grid { grid-template-columns: 1fr; } }
+
+    /* ── LOCATION ─────────────────────────────────── */
+    #location { padding: 5rem 1.5rem; background: var(--cream); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.5rem; align-items: start; }
+    .location-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 18px;
+      padding: 1.5rem; box-shadow: 0 8px 32px rgba(15,25,35,0.10); margin-bottom: 1.25rem;
+    }
+    .loc-row { display: flex; align-items: flex-start; gap: 0.875rem; padding: 0.875rem 0; border-bottom: 1px solid var(--border); }
+    .loc-row:last-child { border-bottom: none; }
+    .loc-icon { width: 38px; height: 38px; background: var(--cream-2); border-radius: 10px; display: grid; place-items: center; flex-shrink: 0; color: var(--gold); }
+    .loc-icon svg { width: 20px; height: 20px; }
+    .loc-label { font-size: 0.78rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+    .loc-value { font-size: 0.95rem; font-weight: 500; color: var(--navy-3); }
+    .loc-value a { color: var(--gold); text-decoration: none; }
+    .loc-value a:hover { text-decoration: underline; }
+    .loc-value a.wa { color: #128C7E; }
+    .loc-sub { font-size: 0.82rem; color: var(--muted); display: block; margin-top: 2px; }
+    .map-wrap { border-radius: 22px; overflow: hidden; box-shadow: 0 8px 32px rgba(15,25,35,0.10); border: 1px solid var(--border); min-height: 400px; }
+    .map-wrap iframe { width: 100%; height: 100%; min-height: 400px; border: none; display: block; }
+
+    @media (max-width: 768px) { .location-grid { grid-template-columns: 1fr; } }
+
+    /* ── CONTACT ──────────────────────────────────── */
+    #contact { padding: 5rem 1.5rem; background: var(--cream-2); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: start; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.88rem; font-weight: 600; color: var(--navy-3); }
+    .form-group input, .form-group textarea {
+      font-family: 'DM Sans', sans-serif; font-size: 0.93rem;
+      padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 12px;
+      background: #fff; color: var(--navy-3); outline: none; transition: border-color 0.2s; width: 100%;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .store-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 1.75rem; box-shadow: 0 8px 32px rgba(15,25,35,0.10); margin-bottom: 1.25rem; }
+    .store-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
+    .store-row { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.875rem; }
+    .store-row:last-child { margin-bottom: 0; }
+    .store-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .store-icon svg { width: 20px; height: 20px; }
+    .store-lbl { font-size: 0.8rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 2px; }
+    .store-val { font-size: 0.93rem; font-weight: 500; color: var(--navy-3); }
+    .store-val a { color: var(--navy); text-decoration: none; }
+    .store-val a:hover { text-decoration: underline; }
+    .wa-card { background: linear-gradient(135deg, #075E54, #128C7E); border-radius: 18px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 32px rgba(15,25,35,0.10); }
+    .wa-card p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 0.875rem; }
+    .wa-card a {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: var(--green-wa); color: #fff; border-radius: 12px;
+      padding: 0.875rem 1rem; font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: background 0.2s;
+    }
+    .wa-card a:hover { background: var(--green-wa2); }
+
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    /* ── Toast ────────────────────────────────────── */
+    #toast-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.5rem; }
+    .toast { padding: 0.875rem 1.25rem; border-radius: 14px; font-size: 0.92rem; font-weight: 500; color: #fff; max-width: 360px; animation: slideUp 0.35s ease forwards; box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .toast.success { background: #1a7a4a; }
+    .toast.error   { background: #b91c1c; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeOut { to { opacity: 0; transform: translateY(-6px); } }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 2.25rem 1.5rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.88rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .footer-addr  { font-size: 0.82rem; margin-top: 4px; }
+    .footer-right { text-align: right; }
+    .footer-right a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: #fff; }
+
+    .icon { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-logo" onclick="scrollTo('home')">
+      <div class="nav-logo-icon">M</div>
+      <div class="nav-logo-text">
+        <strong>Map of Fashion</strong>
+        <span>Nairobi, Kenya</span>
+      </div>
+    </button>
+    <ul class="nav-links">
+      <li><button onclick="scrollTo('home')">Home</button></li>
+      <li><button onclick="scrollTo('about')">About</button></li>
+      <li><button onclick="scrollTo('products')">Products</button></li>
+      <li><button onclick="scrollTo('location')">Location</button></li>
+      <li><button onclick="scrollTo('contact')">Contact</button></li>
+    </ul>
+    <a href="https://wa.me/254790224340?text=Hello%20Map%20of%20Fashion%2C%20I%20need%20assistance" target="_blank" rel="noreferrer" class="btn btn-navy nav-cta">WhatsApp Us</a>
+    <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="mobile-menu" id="mobile-menu">
+    <li><button onclick="scrollTo('home')">Home</button></li>
+    <li><button onclick="scrollTo('about')">About</button></li>
+    <li><button onclick="scrollTo('products')">Products</button></li>
+    <li><button onclick="scrollTo('location')">Location</button></li>
+    <li><button onclick="scrollTo('contact')">Contact</button></li>
+    <li><a href="https://wa.me/254790224340?text=Hello%20Map%20of%20Fashion%2C%20I%20need%20assistance" target="_blank" rel="noreferrer" class="btn btn-navy" style="margin-top:0.25rem;">WhatsApp Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="fade-in">
+        <div class="hero-pill"><span class="dot"></span>Open 24 Hours · Lumumba Dr, Nairobi</div>
+        <h1 class="hero-title">Kenya's Finest<br><em>Ex UK Mtumba</em><br>Fashion Store</h1>
+        <p class="hero-desc">Premium second-hand shoes and clothes sourced straight from the UK — fresh arrivals daily, unbeatable prices, friendly service every single day.</p>
+        <div class="hero-stats">
+          <div><div class="hero-stat-val">5.0</div><div class="hero-stat-lbl">Google Rating</div></div>
+          <div><div class="hero-stat-val">24/7</div><div class="hero-stat-lbl">Always Open</div></div>
+          <div><div class="hero-stat-val">100+</div><div class="hero-stat-lbl">Daily Customers</div></div>
+        </div>
+        <div class="hero-btns">
+          <button class="btn btn-navy" onclick="scrollTo('products')">Browse Products</button>
+          <button class="btn btn-outline" onclick="scrollTo('location')">Find Us</button>
+          <a href="https://wa.me/254790224340?text=Hello%20Map%20of%20Fashion%2C%20I%20need%20assistance" target="_blank" rel="noreferrer" class="btn btn-whatsapp">WhatsApp Us</a>
+        </div>
+      </div>
+      <div class="fade-in" style="transition-delay:0.2s;">
+        <div class="hero-card">
+          <div class="hero-card-img"><div class="hero-card-img-tag">Fresh Arrivals Daily</div></div>
+          <div class="hero-card-body">
+            <h3>Map of Fashion Store Kenya</h3>
+            <p>Ex UK mtumba shoes &amp; clothes at prices you'll love</p>
+            <div class="hero-card-details">
+              <div class="hero-card-detail">
+                <div class="detail-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                Lumumba Dr, Nairobi
+              </div>
+              <div class="hero-card-detail">
+                <div class="detail-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.72 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.91.36 1.85.6 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
+                +254 790 224 340
+              </div>
+              <div class="hero-card-detail">
+                <div class="detail-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                Open 24 hours (call ahead on holidays)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-left">
+        <div class="badge">About Us</div>
+        <h2 class="section-title">Quality Mtumba<br>You Can Trust</h2>
+        <p class="about-desc">Map of Fashion brings you high-quality Ex UK shoes and clothing at affordable prices, sourced from trusted suppliers and restocked daily.</p>
+        <p class="about-desc" style="margin-bottom:0.5rem;">We specialize in men's, women's and kids' wear — everything from classic leather shoes and trainers to casual wear, formal outfits and accessories. Every item is hand-picked for quality, so you always get the best.</p>
+        <div class="feature-list">
+          <div class="feature-item fade-in" style="transition-delay:0.05s;">
+            <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M4 16v-2.38C4 11 6.42 8.61 9 8h1v2H9c-1.65 0-3 1.35-3 3v2h10v-1a1 1 0 0 1 2 0v3H4zm7.35-6H14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2.35A4.49 4.49 0 0 0 8 5.76V6a4 4 0 0 0 3.35 4z"/></svg></div>
+            <div><div class="feature-title">Leather shoes, trainers &amp; boots</div><div class="feature-sub">Well-priced &amp; durable footwear for every occasion</div></div>
+          </div>
+          <div class="feature-item fade-in" style="transition-delay:0.1s;">
+            <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></div>
+            <div><div class="feature-title">Casual wear, formal &amp; accessories</div><div class="feature-sub">Full wardrobe options for men, women &amp; kids</div></div>
+          </div>
+          <div class="feature-item fade-in" style="transition-delay:0.15s;">
+            <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <div><div class="feature-title">Daily restocks &amp; new arrivals</div><div class="feature-sub">Fresh stock every day — come back often!</div></div>
+          </div>
+          <div class="feature-item fade-in" style="transition-delay:0.2s;">
+            <div class="feature-icon"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div><div class="feature-title">Authentic Ex UK mtumba fashion</div><div class="feature-sub">Sourced straight from the UK, quality guaranteed</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-right">
+        <div class="stats-grid">
+          <div class="stat-card scale-in" style="transition-delay:0s;"><div class="stat-val">5.0</div><div class="stat-lbl">Google Rating</div></div>
+          <div class="stat-card scale-in" style="transition-delay:0.1s;"><div class="stat-val">24h</div><div class="stat-lbl">Always Open</div></div>
+          <div class="stat-card scale-in" style="transition-delay:0.15s;"><div class="stat-val">100+</div><div class="stat-lbl">Daily Customers</div></div>
+          <div class="stat-card scale-in" style="transition-delay:0.2s;"><div class="stat-val">UK</div><div class="stat-lbl">Sourced Directly</div></div>
+        </div>
+        <p class="stat-note">* Labor Day may affect open hours. Call ahead to confirm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="products-header">
+      <div class="badge">Products</div>
+      <h2 class="section-title">Featured Products</h2>
+      <p class="section-sub" style="margin-bottom:0;">Browse our latest Ex UK arrivals — fresh stock added every day. Stop by or call ahead to reserve your favorites.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card fade-in" style="transition-delay:0s;">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=800&q=80" alt="Men's leather shoes — polished Oxford brogues" loading="lazy" />
+          <div class="product-tag">Men's Footwear</div>
+        </div>
+        <div class="product-body">
+          <h3>Men's Leather Shoes</h3>
+          <p>Classic and formal styles from the UK at budget-friendly prices. Oxfords, brogues, loafers and more.</p>
+        </div>
+      </div>
+      <div class="product-card fade-in" style="transition-delay:0.15s;">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80');">
+          <div class="product-tag">Women's Wear</div>
+        </div>
+        <div class="product-body">
+          <h3>Women's Dresses</h3>
+          <p>Everyday and partywear from trusted UK label collections. Fresh designs for every occasion.</p>
+        </div>
+      </div>
+      <div class="product-card fade-in" style="transition-delay:0.3s;">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80');">
+          <div class="product-tag">Unisex</div>
+        </div>
+        <div class="product-body">
+          <h3>Casual Trainers</h3>
+          <p>Durable and stylish footwear for work or leisure. Nike, Adidas and premium brands from the UK.</p>
+        </div>
+      </div>
+    </div>
+    <p class="products-cta">Have something specific in mind? <a href="https://wa.me/254790224340?text=Hello%20Map%20of%20Fashion%2C%20I%20need%20assistance" target="_blank" rel="noreferrer">WhatsApp us</a> and we'll check our stock for you.</p>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="container">
+    <div class="badge">Find Us</div>
+    <h2 class="section-title">We're on<br>Lumumba Drive</h2>
+    <p class="section-sub">Easy to reach by matatu or car. We're open 24/7 and always happy to help.</p>
+    <div class="location-grid">
+      <div class="fade-left">
+        <div class="location-card">
+          <div class="loc-row">
+            <div class="loc-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="loc-label">Address</div><div class="loc-value">Lumumba Drive, Nairobi, Kenya</div></div>
+          </div>
+          <div class="loc-row">
+            <div class="loc-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.72 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.91.36 1.85.6 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="loc-label">Phone</div><div class="loc-value"><a href="tel:+254790224340" style="color:var(--navy);">+254 790 224 340</a></div></div>
+          </div>
+          <div class="loc-row">
+            <div class="loc-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="loc-label">Hours</div><div class="loc-value">Open 24 hours, 7 days a week<span class="loc-sub">* May vary on public holidays — call to confirm</span></div></div>
+          </div>
+          <div class="loc-row">
+            <div class="loc-icon" style="color:#128C7E;"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><div class="loc-label">WhatsApp</div><div class="loc-value"><a href="https://wa.me/254790224340?text=Hello%20Map%20of%20Fashion%2C%20I%20need%20assistance" target="_blank" rel="noreferrer" class="wa">Open chat on WhatsApp →</a></div></div>
+          </div>
+          <div class="loc-row">
+            <div class="loc-icon" style="color:#f59e0b;"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div><div class="loc-label">Rating</div><div class="loc-value">5.0 / 5.0 on Google Maps</div></div>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=Lumumba+Drive+Nairobi" target="_blank" rel="noreferrer" class="btn btn-navy">Get Directions →</a>
+      </div>
+      <div class="fade-right">
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.799!2d36.8219!3d-1.2921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10a5f5d1b9e7%3A0x8a6a0b0c5d4e6f7c!2sLumumba%20Dr%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1680000000000!5m2!1sen!2ske" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Fashion Store — Lumumba Drive, Nairobi"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="fade-left">
+        <div class="badge">Get in Touch</div>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-sub">Questions about stock, prices or delivery? Send us a message and we'll get back to you soon.</p>
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. John Kamau" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Ask us about stock, sizing, prices or anything else…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-navy">Send Message →</button>
+        </form>
+      </div>
+      <div class="fade-right">
+        <div class="store-card">
+          <h3>Store Details</h3>
+          <div class="store-row">
+            <div class="store-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><span class="store-lbl">Address</span><div class="store-val">Lumumba Dr, Nairobi, Kenya</div></div>
+          </div>
+          <div class="store-row">
+            <div class="store-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.72 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.91.36 1.85.6 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><span class="store-lbl">Phone</span><div class="store-val"><a href="tel:+254790224340">+254 790 224 340</a></div></div>
+          </div>
+          <div class="store-row">
+            <div class="store-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <div><span class="store-lbl">Speciality</span><div class="store-val">Ex UK mtumba shoes &amp; clothes</div></div>
+          </div>
+          <div class="store-row">
+            <div class="store-icon" style="color:#f59e0b;"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div><span class="store-lbl">Rating</span><div class="store-val">5.0 · 1 Review on Google</div></div>
+          </div>
+        </div>
+        <div class="wa-card">
+          <p>Prefer a quick reply? Chat with us directly on WhatsApp!</p>
+          <a href="https://wa.me/254790224340?text=Hello%20Map%20of%20Fashion%2C%20I%20need%20assistance" target="_blank" rel="noreferrer">💬 &nbsp; WhatsApp Us Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Map of Fashion</div>
+      <div class="footer-addr">Lumumba Dr, Nairobi &nbsp;·&nbsp; Open 24 hours</div>
+    </div>
+    <div class="footer-right">
+      <div style="color:rgba(255,255,255,0.85);">© 2026 Map of Fashion Store Kenya</div>
+      <div style="margin-top:4px;"><a href="tel:+254790224340">+254 790 224 340</a></div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<script>
+  function scrollTo(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('mobile-menu').classList.remove('open');
+  }
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // Scroll-triggered animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in, .fade-left, .fade-right, .scale-in').forEach(el => observer.observe(el));
+
+  // Toast
+  function showToast(msg, type = 'success') {
+    const t = Object.assign(document.createElement('div'), { className: `toast ${type}`, textContent: msg });
+    document.getElementById('toast-container').appendChild(t);
+    setTimeout(() => { t.style.animation = 'fadeOut 0.3s ease forwards'; setTimeout(() => t.remove(), 300); }, 4000);
+  }
+
+  // Contact form
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = this.name.value.trim(), email = this.email.value.trim(), msg = this.message.value.trim();
+    if (!name || !email || !msg) { showToast('Please fill in all fields.', 'error'); return; }
+    showToast(`Thanks ${name}! We'll reply to ${email} soon.`, 'success');
+    this.reset();
+  });
+</script>
+</body>
+</html>
